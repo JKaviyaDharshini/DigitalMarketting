@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   1. CSS Variables
+   ========================================= */
+:root {
+  --bg-color: #030008;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  
+  --grad-1: #FEDA75;
+  --grad-2: #FA7E1E;
+  --grad-3: #D62976;
+  --grad-4: #E1306C;
+  --grad-5: #962FBF;
+  --grad-6: #4F5BD5;
+
+  --accent: var(--grad-4);
+  --accent-light: var(--grad-2);
+  --gradient-primary: linear-gradient(45deg, var(--grad-1), var(--grad-2), var(--grad-3), var(--grad-4), var(--grad-5), var(--grad-6));
+
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================
+   2. Fonts & Base Styling
+   ========================================= */
+html {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #11051F;
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(254, 218, 117, 0.15), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(150, 47, 191, 0.15), transparent 40%);
+  min-height: 100vh;
+}
+
+/* =========================================
+   3. Scrollbar
+   ========================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* =========================================
+   4. Selection Color
+   ========================================= */
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* =========================================
+   5. Global Animation Keyframes
+   ========================================= */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(225, 48, 108, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(225, 48, 108, 0); }
+}
+
+/* =========================================
+   6. Global Utility Classes (Very few)
+   ========================================= */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.heading-xl {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  border: 1px solid var(--glass-border);
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  background-size: 200% auto;
+  color: white;
+  border: none;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+.btn-primary:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3);
+}
+
+.btn-glass {
+  background: var(--glass-bg);
+  color: white;
+  backdrop-filter: blur(8px);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
